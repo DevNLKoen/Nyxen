@@ -34,7 +34,7 @@
         };
 
         modules = [
-          ./configuration.nix
+          ./hosts/victus16/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
