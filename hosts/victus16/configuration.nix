@@ -29,7 +29,7 @@
 
   # System info
   system = {
-    nixos.variantName = "Nyxen";
+    nixos.variantName = "Nyxen-victus16";
     stateVersion = "25.05";
   };
 
@@ -47,7 +47,7 @@
   virtualisation.waydroid.enable = true;
 
   networking = {
-    hostName = "Koen-Nyxen";
+    hostName = "victus16";
     networkmanager.enable = true;
   };
 
@@ -157,4 +157,7 @@
     flameshot
     copyq
   ];
+  environment.sessionVariables = {
+      NH_FLAKE = "/home/nlkoen/nix-config";
+    };
 }

@@ -25,7 +25,7 @@
     system = "x86_64-linux";
   in {
     nixosConfigurations = {
-      Koen-Nyxen = nixpkgs.lib.nixosSystem {
+      victus16 = nixpkgs.lib.nixosSystem {
         system = system;
 
         specialArgs = {
