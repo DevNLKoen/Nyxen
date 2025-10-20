@@ -44,8 +44,6 @@
     powerOnBoot = true;
   };
 
-  virtualisation.waydroid.enable = true;
-
   networking = {
     hostName = "victus16";
     networkmanager.enable = true;
