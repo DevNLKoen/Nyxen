@@ -15,7 +15,7 @@ in {
       nyxen.games.prismlauncher.enable = lib.mkDefault true;
       programs = {
           steam.enable = lib.mkDefault true;
-          gamescope.enable = lib.mkDefault true;
+          gamescope.enable = lib.mkOptionDefault true;
           gamemode.enable = lib.mkDefault true;
           sleepy-launcher.enable = lib.mkDefault true;
           honkers-launcher.enable = lib.mkDefault true;
