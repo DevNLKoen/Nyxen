@@ -124,19 +124,11 @@
         user.email = "94992822+DevNLKoen@users.noreply.github.com";
       };
     };
-
     firefox.enable = true;
-    steam.enable = true;
-    gamescope.enable = true;
-    gamemode.enable = true;
-    sleepy-launcher.enable = true;
-    honkers-launcher.enable = true;
-    honkers-railway-launcher.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     wget
-    lutris
     godot
     scrcpy
     alejandra

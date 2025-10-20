@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: let
@@ -12,6 +13,18 @@ in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       nyxen.games.prismlauncher.enable = lib.mkDefault true;
+      programs = {
+          steam.enable = lib.mkDefault true;
+          gamescope.enable = lib.mkDefault true;
+          gamemode.enable = lib.mkDefault true;
+          sleepy-launcher.enable = lib.mkDefault true;
+          honkers-launcher.enable = lib.mkDefault true;
+          honkers-railway-launcher.enable = lib.mkDefault true;
+      };
+
+      environment.systemPackages = with pkgs; [
+        lutris
+      ];
     })
   ];
 }
