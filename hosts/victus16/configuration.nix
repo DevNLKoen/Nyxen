@@ -10,6 +10,9 @@
     cwc.nixosModules.cwc
   ];
 
+  # nyxen options from modules
+  nyxen.games.enable = true;
+
   # Bootloader.
   boot = {
     loader = {
@@ -134,14 +137,6 @@
   environment.systemPackages = with pkgs; [
     wget
     lutris
-    (prismlauncher.override {
-      jdks = [
-        temurin-jre-bin-25
-        temurin-jre-bin
-        temurin-jre-bin-17
-        temurin-jre-bin-8
-      ];
-    })
     godot
     scrcpy
     alejandra
@@ -156,6 +151,6 @@
     copyq
   ];
   environment.sessionVariables = {
-      NH_FLAKE = "/home/nlkoen/nix-config";
-    };
+    NH_FLAKE = "/home/nlkoen/nix-config";
+  };
 }
