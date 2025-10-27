@@ -97,6 +97,11 @@
     # jack.enable = true;
   };
 
+#logitech mouse 
+  services.solaar = {
+      enable = true;
+    };
+
   # User
   users.users.nlkoen = {
     isNormalUser = true;
@@ -110,6 +115,7 @@
 
   programs = {
     cwc.enable = true;
+    niri.enable = true;
     direnv.enable = true;
     zsh.enable = true;
 

@@ -12,6 +12,10 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    solaar = {
+        url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
   };
 
@@ -19,6 +23,7 @@
     nixpkgs,
     home-manager,
     aagl,
+    solaar,
     cwc,
     ...
   }: let
@@ -36,6 +41,7 @@
         modules = [
           ./hosts/victus16/configuration.nix
           ./modules/nixos
+          solaar.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
