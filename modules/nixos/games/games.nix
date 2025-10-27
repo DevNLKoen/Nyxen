@@ -12,7 +12,12 @@ in {
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      nyxen.games.prismlauncher.enable = lib.mkDefault true;
+      nyxen.games = { 
+        prismlauncher.enable = lib.mkDefault true;
+        hollow-knight.enable = lib.mkDefault true;
+        celeste.enable = lib.mkDefault true;
+      };
+
       programs = {
           steam.enable = lib.mkDefault true;
           gamescope.enable = lib.mkOptionDefault true;
