@@ -149,6 +149,7 @@
     flameshot
     copyq
     xwayland-satellite
+    craftos-pc
   ];
   environment.sessionVariables = {
     NH_FLAKE = "/home/nlkoen/nix-config";
