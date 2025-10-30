@@ -11,7 +11,10 @@
   ];
 
   # nyxen options from modules
-  nyxen.games.enable = true;
+  nyxen = {
+    games.enable = true;
+    flatpak.enable = true;
+  };
 
   # Bootloader.
   boot = {
@@ -111,8 +114,6 @@
   };
 
   # Programs
-  services.flatpak.enable = true;
-
   programs = {
     cwc.enable = true;
     niri.enable = true;

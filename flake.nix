@@ -17,6 +17,7 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
+    nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = {
@@ -25,6 +26,7 @@
     aagl,
     solaar,
     cwc,
+    nix-flatpak,
     ...
   }: let
     system = "x86_64-linux";
@@ -43,6 +45,7 @@
           ./modules/nixos
           solaar.nixosModules.default
           home-manager.nixosModules.home-manager
+          nix-flatpak.nixosModules.nix-flatpak
           {
             home-manager = {
               useGlobalPkgs = true;
