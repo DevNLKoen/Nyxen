@@ -74,36 +74,36 @@
   };
 
   # Display & Desktop
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
-  # Input
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Printing
-  services.printing.enable = true;
-
-  # Audio
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # jack.enable = true;
-  };
-
-#logitech mouse 
-  services.solaar = {
+  services = {
+    displayManager.sddm = {
       enable = true;
+      wayland.enable = true;
     };
+
+    # Input
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    # Printing
+    printing.enable = true;
+
+    #logitech mouse
+    solaar.enable = true;
+
+    # Audio
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # jack.enable = true;
+    };
+  };
+  security.rtkit.enable = true;
 
   # User
   users.users.nlkoen = {

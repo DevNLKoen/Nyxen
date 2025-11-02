@@ -13,9 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     solaar = {
-        url = "github:Svenum/Solaar-Flake/main";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+      url = "github:Svenum/Solaar-Flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
   };
@@ -33,9 +33,8 @@
   in {
     nixosConfigurations = {
       victus16 = nixpkgs.lib.nixosSystem {
-        system = system;
-
         specialArgs = {
+          inherit system;
           inherit aagl;
           inherit cwc;
         };

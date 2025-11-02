@@ -6,10 +6,9 @@
 }: let
   cfg = config.nyxen.games.prismlauncher;
 
-  customPrismLauncher = 
-    (pkgs.prismlauncher.override {
-        jdks = cfg.jdks;
-      });
+  customPrismLauncher = pkgs.prismlauncher.override {
+    inherit (cfg) jdks;
+  };
 in {
   options.nyxen.games.prismlauncher = {
     enable = lib.mkEnableOption "Prismlauncher";
@@ -40,6 +39,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ customPrismLauncher ];
+    environment.systemPackages = [customPrismLauncher];
   };
 }
