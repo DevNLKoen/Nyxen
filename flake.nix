@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     solaar = {
-        url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz";
+        url = "github:Svenum/Solaar-Flake/main";
         inputs.nixpkgs.follows = "nixpkgs";
       };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
