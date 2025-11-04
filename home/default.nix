@@ -10,8 +10,6 @@
     shell.enableZshIntegration = true;
   };
 
-  services.swww.enable = true;
-
   programs = {
     ### Shell ###
     zsh = {
@@ -51,14 +49,6 @@
       enable = true;
       plugins = [pkgs.rofi-games];
     };
-
-    vesktop.enable = true;
-    waybar.enable = true;
-
-    ### CMD / TUI ###
-
-    btop.enable = true;
-    ripgrep.enable = true;
 
     ### fastfetch ###
     fastfetch = {

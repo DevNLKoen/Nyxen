@@ -132,6 +132,7 @@
       };
     };
     firefox.enable = true;
+    waybar.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -150,6 +151,11 @@
     copyq
     xwayland-satellite
     craftos-pc
+
+    vesktop
+    btop
+    ripgrep
+    swww
   ];
   environment.sessionVariables = {
     NH_FLAKE = "/home/nlkoen/nix-config";
