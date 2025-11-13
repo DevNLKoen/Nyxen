@@ -14,6 +14,7 @@
   nyxen = {
     games.enable = true;
     flatpak.enable = true;
+    rofi.enable = true;
   };
 
   # Bootloader.

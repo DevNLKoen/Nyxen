@@ -45,11 +45,6 @@
       };
     };
 
-    rofi = {
-      enable = true;
-      plugins = [pkgs.rofi-games];
-    };
-
     ### fastfetch ###
     fastfetch = {
       enable = true;
