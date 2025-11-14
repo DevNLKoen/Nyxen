@@ -34,17 +34,6 @@
       };
     };
 
-    ### UI / Apps ###
-
-    kitty = {
-      enable = true;
-      font.name = lib.mkForce "JetBrainsMono Nerd Font";
-      settings = {
-        background_opacity = 0.7;
-        enable_audio_bell = false;
-      };
-    };
-
     ### fastfetch ###
     fastfetch = {
       enable = true;
