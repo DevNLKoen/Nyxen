@@ -159,6 +159,7 @@
     swww
 
     kitty
+    fastfetch
   ];
   environment.sessionVariables = {
     NH_FLAKE = "/home/nlkoen/nix-config";
