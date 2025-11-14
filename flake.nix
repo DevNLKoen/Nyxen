@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    wrappers.url = "github:Lassulus/wrappers";
     aagl = {
       # an anime game launcher
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -17,7 +18,9 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
+    wrappers,
     aagl,
     solaar,
     cwc,
@@ -25,6 +28,7 @@
     ...
   }: let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
     nixosConfigurations = {
       victus16 = nixpkgs.lib.nixosSystem {
@@ -32,6 +36,7 @@
           inherit system;
           inherit aagl;
           inherit cwc;
+          inherit self;
         };
 
         modules = [
@@ -42,5 +47,11 @@
         ];
       };
     };
+    rofi =
+      # use wrapModule to create a wrapper for neovim
+      (wrappers.wrapperModules.rofi.apply {
+        pkgs = pkgs;
+        plugins = [pkgs.rofi-games];
+      }).wrapper;
   };
 }
