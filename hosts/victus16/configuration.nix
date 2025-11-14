@@ -160,6 +160,9 @@
 
     kitty
     fastfetch
+
+    zsh
+    starship
   ];
   environment.sessionVariables = {
     NH_FLAKE = "/home/nlkoen/nix-config";

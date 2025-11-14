@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     aagl = {
       # an anime game launcher
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -22,7 +18,6 @@
 
   outputs = {
     nixpkgs,
-    home-manager,
     aagl,
     solaar,
     cwc,
@@ -43,16 +38,7 @@
           ./hosts/victus16/configuration.nix
           ./modules/nixos
           solaar.nixosModules.default
-          home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              users.nlkoen = ./home/default.nix;
-            };
-          }
         ];
       };
     };
