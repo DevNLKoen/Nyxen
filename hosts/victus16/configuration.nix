@@ -14,6 +14,7 @@
   nyxen = {
     games.enable = true;
     flatpak.enable = true;
+    kitty.enable = true;
     rofi.enable = true;
   };
 
@@ -158,7 +159,6 @@
     ripgrep
     swww
 
-    kitty
     fastfetch
 
     zsh

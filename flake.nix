@@ -49,5 +49,6 @@
       };
     };
     rofi = wrap "rofi";
+    kitty = wrap "kitty";
   };
 }
