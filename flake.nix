@@ -29,6 +29,7 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers;};
   in {
     nixosConfigurations = {
       victus16 = nixpkgs.lib.nixosSystem {
@@ -47,11 +48,6 @@
         ];
       };
     };
-    rofi =
-      # use wrapModule to create a wrapper for neovim
-      (wrappers.wrapperModules.rofi.apply {
-        pkgs = pkgs;
-        plugins = [pkgs.rofi-games];
-      }).wrapper;
+    rofi = wrap "rofi";
   };
 }

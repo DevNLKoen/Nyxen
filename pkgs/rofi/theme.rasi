@@ -1,0 +1,105 @@
+* {
+    primary:                rgba ( 187, 19, 17, 100 % );
+    background-color:       transparent;
+    background:             rgba ( 29, 35, 48, 100 % );
+    background-transparent: rgba ( 0, 0, 0, 60 % );
+    text-color-selected:    White;
+    text-color:             rgba ( 187, 187, 187, 100 % );
+    important:              rgba ( 191, 97, 106, 100 % );
+}
+ window {
+     transparency:     "real";
+     width:            50.0000% ;
+     background-color: var(background-transparent);
+     border-radius:    10px ;
+     border-color:     var(primary);
+     border:           4px ;
+     height:           75.0000% ;
+ }
+mainbox {
+     padding:  0px ;
+     children: [ "mode-switcher","inputbar-box","listview" ];
+}
+mode-switcher {
+    border-color: var(primary);
+    border:       0px 0px 3px 0px;
+  }
+modes {
+    border-color: var(primary);
+    border:   2px;
+  }
+prompt {
+    width:      100.0000% ;
+    margin:     10px 0px 0px 30px ;
+    font:       "Roboto Bold 27";
+    text-color: var(important);
+}
+listview {
+    padding: 30px ;
+    dynamic: true;
+    layout:  vertical;
+    columns: 3;
+    spacing: 20px ;
+}
+inputbar-box {
+    orientation: horizontal;
+    expand:      false;
+    children:    [ "dummy","inputbar","dummy" ];
+}
+inputbar {
+    children:         [ "textbox-prompt","entry" ];
+    margin:           20px 0px 10px ;
+    background-color: var(primary);
+    border-color:     var(primary);
+    border:           4px ;
+    border-radius:    8px ;
+}
+textbox-prompt {
+    vertical-align:   0.50;
+    expand:           false;
+    horizontal-align: 0.50;
+    text-color:       var(background);
+}
+entry {
+    cursor:           text;
+    padding:          8px ;
+    width:            300;
+    background-color: var(background);
+    margin:           4294967290px ;
+    border-color:     var(primary);
+    border:           6px ;
+    expand:           false;
+    horizontal-align: 0;
+    border-radius:    8px ;
+}
+element {
+    padding:       5px ;
+    orientation:   vertical;
+    border-color:  transparent;
+    children:      [ "dummy","element-box","dummy" ];
+    border:        4px 4px ;
+    border-radius: 16;
+}
+element selected {
+    border-color: var(primary);
+}
+element-box {
+    orientation: vertical;
+    expand:      false;
+    cursor:      pointer;
+    children:    [ "element-icon","element-text" ];
+}
+element-icon {
+    padding: 0px 10px ;
+    size:    12.0000% ;
+    cursor:  inherit;
+    margin:  10px ;
+}
+element-text {
+    cursor:           inherit;
+    horizontal-align: 0.50;
+    text-color:       var(text-color);
+}
+element-text selected {
+   text-color: var(text-color-selected);
+}
