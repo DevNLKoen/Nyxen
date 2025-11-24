@@ -2,7 +2,6 @@
   config,
   self,
   lib,
-  pkgs,
   ...
 }: {
   options.nyxen.rofi.enable = lib.mkEnableOption "Enable Rofi with rofi-games plugin";
