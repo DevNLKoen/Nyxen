@@ -15,6 +15,7 @@
     games.enable = true;
     flatpak.enable = true;
     kitty.enable = true;
+    nvim.enable = true;
     rofi.enable = true;
   };
 
@@ -164,6 +165,7 @@
     zsh
     starship
   ];
+
   environment.sessionVariables = {
     NH_FLAKE = "/home/nlkoen/nix-config";
   };

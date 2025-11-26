@@ -15,6 +15,7 @@
     };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = {
@@ -25,6 +26,7 @@
     solaar,
     cwc,
     nix-flatpak,
+    nvf,
     ...
   }: let
     system = "x86_64-linux";
@@ -48,6 +50,11 @@
         ];
       };
     };
+    nvim =
+      (nvf.lib.neovimConfiguration {
+        pkgs = pkgs;
+        modules = [./pkgs/nvim];
+      }).neovim;
     rofi = wrap "rofi";
     kitty = wrap "kitty";
   };
