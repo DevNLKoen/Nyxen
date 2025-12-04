@@ -31,31 +31,42 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers;};
-  in {
-    nixosConfigurations = {
-      victus16 = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit system;
-          inherit aagl;
-          inherit cwc;
-          inherit self;
-        };
 
-        modules = [
-          ./hosts/victus16/configuration.nix
-          ./modules/nixos
-          solaar.nixosModules.default
-          nix-flatpak.nixosModules.nix-flatpak
-        ];
+    #wraps pkgs from ./pkgs
+    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers;};
+    wrapAll =
+      builtins.listToAttrs
+      (
+        map (name: {
+          name = name;
+          value = wrap name;
+        })
+        (builtins.attrNames (builtins.readDir ./pkgs))
+      );
+  in
+    wrapAll
+    // {
+      nixosConfigurations = {
+        victus16 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system;
+            inherit aagl;
+            inherit cwc;
+            inherit self;
+          };
+
+          modules = [
+            ./hosts/victus16/configuration.nix
+            ./modules/nixos
+            solaar.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
       };
+      nvim =
+        (nvf.lib.neovimConfiguration {
+          pkgs = pkgs;
+          modules = [./pkgs/nvim];
+        }).neovim;
     };
-    nvim =
-      (nvf.lib.neovimConfiguration {
-        pkgs = pkgs;
-        modules = [./pkgs/nvim];
-      }).neovim;
-    rofi = wrap "rofi";
-    kitty = wrap "kitty";
-  };
 }
