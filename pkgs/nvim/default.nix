@@ -1,8 +1,5 @@
-{pkgs, ...}: {
+{...}: {
   vim = {
-    extraPackages = [
-      pkgs.yazi
-    ];
     ## themeing
     theme = {
       enable = true;
@@ -24,33 +21,36 @@
       enable = true;
     };
 
-    # debugger.nvim-dap.enable = true;
-    # debugger.nvim-dap.ui.enable = true;
-
     ## plugins
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.blink-cmp.enable = true;
 
     lsp.enable = true;
+    formatter.conform-nvim.enable = true;
 
     terminal.toggleterm.enable = true;
 
     # languages
     languages = {
-      enableTreesitter = true;
       enableDAP = true;
+      enableExtraDiagnostics = true;
+      enableFormat = true;
+      enableTreesitter = true;
 
-      nix.enable = true;
+      java.enable = true;
       lua.enable = true;
-      rust.enable = true;
+      nix.enable = true;
       python.enable = true;
+      rust.enable = true;
     };
 
     filetree.neo-tree.enable = true;
 
-    utility.oil-nvim.enable = true;
-    utility.snacks-nvim.enable = true;
-    utility.nix-develop.enable = true;
+    utility = {
+      oil-nvim.enable = true;
+      snacks-nvim.enable = true;
+      nix-develop.enable = true;
+    };
   };
 }
