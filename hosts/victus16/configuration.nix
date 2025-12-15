@@ -167,6 +167,6 @@
   ];
 
   environment.sessionVariables = {
-    NH_FLAKE = "/home/nlkoen/nix-config";
+    NH_FLAKE = "/home/nlkoen/nixos";
   };
 }
