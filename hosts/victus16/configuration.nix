@@ -14,6 +14,8 @@
   nyxen = {
     games.enable = true;
     flatpak.enable = true;
+    kitty.enable = true;
+    nvim.enable = true;
     rofi.enable = true;
   };
 
@@ -158,13 +160,13 @@
     ripgrep
     swww
 
-    kitty
     fastfetch
 
     zsh
     starship
   ];
+
   environment.sessionVariables = {
-    NH_FLAKE = "/home/nlkoen/nix-config";
+    NH_FLAKE = "/home/nlkoen/nixos";
   };
 }

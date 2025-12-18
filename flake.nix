@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    wrappers.url = "github:Lassulus/wrappers";
     aagl = {
       # an anime game launcher
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -14,33 +15,58 @@
     };
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = {
+    self,
     nixpkgs,
+    wrappers,
     aagl,
     solaar,
     cwc,
     nix-flatpak,
+    nvf,
     ...
   }: let
     system = "x86_64-linux";
-  in {
-    nixosConfigurations = {
-      victus16 = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit system;
-          inherit aagl;
-          inherit cwc;
-        };
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-        modules = [
-          ./hosts/victus16/configuration.nix
-          ./modules/nixos
-          solaar.nixosModules.default
-          nix-flatpak.nixosModules.nix-flatpak
-        ];
+    #wraps pkgs from ./pkgs
+    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers;};
+    wrapAll =
+      builtins.listToAttrs
+      (
+        map (name: {
+          name = name;
+          value = wrap name;
+        })
+        (builtins.attrNames (builtins.readDir ./pkgs))
+      );
+  in
+    wrapAll
+    // {
+      nixosConfigurations = {
+        victus16 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system;
+            inherit aagl;
+            inherit cwc;
+            inherit self;
+          };
+
+          modules = [
+            ./hosts/victus16/configuration.nix
+            ./modules/nixos
+            solaar.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
       };
+      nvim =
+        (nvf.lib.neovimConfiguration {
+          pkgs = pkgs;
+          modules = [./pkgs/nvim];
+        }).neovim;
     };
-  };
 }
