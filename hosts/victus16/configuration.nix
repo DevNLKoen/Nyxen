@@ -82,6 +82,7 @@
       enable = true;
       wayland.enable = true;
     };
+    desktopManager.cosmic.enable = true;
 
     # Input
     xserver.xkb = {
@@ -135,7 +136,6 @@
       };
     };
     firefox.enable = true;
-    waybar.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -164,6 +164,7 @@
 
     zsh
     starship
+    waybar
   ];
 
   environment.sessionVariables = {
