@@ -78,10 +78,7 @@
 
   # Display & Desktop
   services = {
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    displayManager.cosmic-greeter.enable = true;
     desktopManager.cosmic.enable = true;
 
     # Input
