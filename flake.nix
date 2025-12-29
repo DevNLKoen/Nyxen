@@ -57,7 +57,7 @@
 
           modules = [
             ./hosts/Umbryn/configuration.nix
-            ./modules/nixos
+            ./modules
             solaar.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
           ];
