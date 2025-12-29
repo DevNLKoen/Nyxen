@@ -47,7 +47,7 @@
     wrapAll
     // {
       nixosConfigurations = {
-        victus16 = nixpkgs.lib.nixosSystem {
+        umbryn = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit system;
             inherit aagl;
@@ -56,7 +56,7 @@
           };
 
           modules = [
-            ./hosts/victus16/configuration.nix
+            ./hosts/Umbryn/configuration.nix
             ./modules/nixos
             solaar.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak

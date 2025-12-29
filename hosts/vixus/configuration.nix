@@ -23,11 +23,11 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-      };
+     # grub = {
+     #   efiSupport = true;
+     #   device = "nodev";
+     #   useOSProber = true;
+     # };
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
@@ -38,7 +38,7 @@
 
   # System info
   system = {
-    nixos.variantName = "Nyxen-victus16";
+    nixos.variantName = "Nyxen-vixus";
     stateVersion = "25.05";
   };
 
@@ -54,7 +54,7 @@
   };
 
   networking = {
-    hostName = "victus16";
+    hostName = "vixus";
     networkmanager.enable = true;
   };
 
