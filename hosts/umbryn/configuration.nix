@@ -2,6 +2,7 @@
   pkgs,
   aagl,
   cwc,
+  lib,
   ...
 }: {
   imports = [
@@ -54,7 +55,7 @@
   };
 
   networking = {
-    hostName = "Umbryn";
+    hostName = "umbryn";
     networkmanager.enable = true;
   };
 
@@ -78,11 +79,6 @@
 
   # Display & Desktop
   services = {
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-
     # Input
     xserver.xkb = {
       layout = "us";

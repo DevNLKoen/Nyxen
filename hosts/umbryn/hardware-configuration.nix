@@ -12,7 +12,7 @@
     initrd.availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
     initrd.kernelModules = [];
     kernelModules = ["cros_ec" "cros_ec_lpcs"];
-    kernelParams = ["amdgpu.dcdebugmask=0x10" "amd_pstate=active" ];
+    kernelParams = ["amdgpu.dcdebugmask=0x10" "amd_pstate=active"];
     extraModulePackages = with config.boot.kernelPackages; [framework-laptop-kmod];
   };
 
@@ -57,9 +57,9 @@
     fstrim.enable = true;
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
+    xserver.videoDrivers = ["nvidia"];
   };
-  
+
   hardware = {
     graphics.enable = true;
     sensor.iio.enable = true;

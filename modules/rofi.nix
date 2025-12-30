@@ -1,6 +1,6 @@
 {
+  packages,
   config,
-  self,
   lib,
   ...
 }: {
@@ -8,7 +8,7 @@
 
   config = lib.mkIf config.nyxen.rofi.enable {
     environment.systemPackages = [
-      self.rofi
+      packages.rofi
     ];
   };
 }
