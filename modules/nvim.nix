@@ -2,7 +2,6 @@
   config,
   self,
   lib,
-  pkgs,
   ...
 }: {
   options.nyxen.nvim.enable = lib.mkEnableOption "Enable nvim with nvf configuration";

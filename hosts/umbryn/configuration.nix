@@ -2,6 +2,7 @@
   pkgs,
   aagl,
   cwc,
+  lib,
   ...
 }: {
   imports = [
@@ -38,7 +39,7 @@
 
   # System info
   system = {
-    nixos.variantName = "Nyxen-victus16";
+    nixos.variantName = "Nyxen-Umbryn";
     stateVersion = "25.05";
   };
 
@@ -54,7 +55,7 @@
   };
 
   networking = {
-    hostName = "victus16";
+    hostName = "umbryn";
     networkmanager.enable = true;
   };
 
@@ -78,9 +79,6 @@
 
   # Display & Desktop
   services = {
-    displayManager.cosmic-greeter.enable = true;
-    desktopManager.cosmic.enable = true;
-
     # Input
     xserver.xkb = {
       layout = "us";
@@ -117,6 +115,7 @@
   # Programs
   programs = {
     cwc.enable = true;
+    hyprland.enable = true;
     niri.enable = true;
     direnv.enable = true;
     zsh.enable = true;
@@ -137,7 +136,6 @@
 
   environment.systemPackages = with pkgs; [
     wget
-    godot
     scrcpy
     alejandra
     nixd
@@ -150,18 +148,15 @@
     flameshot
     copyq
     xwayland-satellite
-    craftos-pc
-
     vesktop
     btop
     ripgrep
     swww
-
     fastfetch
-
     zsh
     starship
     waybar
+    framework-tool
   ];
 
   environment.sessionVariables = {
