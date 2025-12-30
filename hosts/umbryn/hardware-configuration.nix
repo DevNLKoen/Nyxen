@@ -11,8 +11,11 @@
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
     initrd.kernelModules = [];
+    initrd.systemd.enable = true;
     kernelModules = ["cros_ec" "cros_ec_lpcs"];
-    kernelParams = ["amdgpu.dcdebugmask=0x10" "amd_pstate=active"];
+    kernelParams = ["amdgpu.dcdebugmask=0x10" "amd_pstate=active" "quiet" "splash" "loglevel=3" "rd.systemd.show_status=false"
+  "rd.udev.log_level=3"
+  "vt.global_cursor_default=0"];
     extraModulePackages = with config.boot.kernelPackages; [framework-laptop-kmod];
   };
 

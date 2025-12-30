@@ -2,7 +2,6 @@
   pkgs,
   aagl,
   cwc,
-  lib,
   ...
 }: {
   imports = [
@@ -29,6 +28,10 @@
         device = "nodev";
         useOSProber = true;
       };
+      timeout = 0;
+    };
+    plymouth = {
+      enable = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
   };
@@ -119,11 +122,6 @@
     niri.enable = true;
     direnv.enable = true;
     zsh.enable = true;
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
 
     git = {
       enable = true;
