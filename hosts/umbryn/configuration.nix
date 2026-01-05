@@ -2,11 +2,13 @@
   pkgs,
   aagl,
   cwc,
+  pinnacle,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     aagl.nixosModules.default
+    pinnacle.nixosModules.default
     cwc.nixosModules.cwc
   ];
 
@@ -106,6 +108,7 @@
     };
   };
   security.rtkit.enable = true;
+  security.polkit.enable = true;
 
   # User
   users.users.nlkoen = {
@@ -118,9 +121,15 @@
   # Programs
   programs = {
     cwc.enable = true;
+    pinnacle = {
+      enable = true;
+      package = pinnacle.packages.${pkgs.system}.pinnacle;
+      xdg-portals.enable = true;
+    };
     hyprland.enable = true;
     niri.enable = true;
     direnv.enable = true;
+    dconf.enable = true;
     zsh.enable = true;
 
     git = {
