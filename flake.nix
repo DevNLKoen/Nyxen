@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
+    cwc.url = "github:Cudiph/cwcwm/v0.3.0"; # the cwcwm window manager
     pinnacle.url = "github:pinnacle-comp/pinnacle";
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
     nvf.url = "github:notashelf/nvf";
