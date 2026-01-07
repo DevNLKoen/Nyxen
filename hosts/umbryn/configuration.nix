@@ -106,6 +106,14 @@
       pulse.enable = true;
       # jack.enable = true;
     };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd}/bin/agreety --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
+        };
+      };
+    };
   };
   security.rtkit.enable = true;
   security.polkit.enable = true;
