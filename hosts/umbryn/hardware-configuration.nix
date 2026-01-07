@@ -78,10 +78,7 @@
       modesetting.enable = true;
       open = true;
       prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
+        sync.enable = true;
         amdgpuBusId = lib.mkDefault "PCI:194:0:0";
         nvidiaBusId = lib.mkDefault "PCI:193:0:0";
       };
