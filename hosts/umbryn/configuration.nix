@@ -9,16 +9,14 @@
     ./hardware-configuration.nix
     aagl.nixosModules.default
     pinnacle.nixosModules.default
-    cwc.nixosModules.cwc
   ];
 
   # nyxen options from modules
   nyxen = {
+    desktop.compositors.cwc.enable = true;
     games.enable = true;
     flatpak.enable = true;
-    kitty.enable = true;
     nvim.enable = true;
-    rofi.enable = true;
   };
 
   # Bootloader.
@@ -93,9 +91,6 @@
     # Printing
     printing.enable = true;
 
-    #logitech mouse
-    solaar.enable = true;
-
     # Audio
     pulseaudio.enable = false;
 
@@ -128,7 +123,6 @@
 
   # Programs
   programs = {
-    cwc.enable = true;
     pinnacle = {
       enable = true;
       package = pinnacle.packages.${pkgs.system}.pinnacle;
@@ -156,21 +150,15 @@
     nixd
     nh
     fd
-    bibata-cursors
     pulseaudio
     playerctl
-    brightnessctl
-    flameshot
-    copyq
     xwayland-satellite
     vesktop
     btop
     ripgrep
-    swww
     fastfetch
     zsh
     starship
-    waybar
     framework-tool
   ];
 
