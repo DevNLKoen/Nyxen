@@ -2,21 +2,20 @@
   pkgs,
   aagl,
   cwc,
+  pinnacle,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     aagl.nixosModules.default
-    cwc.nixosModules.cwc
+    pinnacle.nixosModules.default
   ];
 
   # nyxen options from modules
   nyxen = {
-    games.enable = true;
+    desktop.enable = true;
     flatpak.enable = true;
-    kitty.enable = true;
     nvim.enable = true;
-    rofi.enable = true;
   };
 
   # Bootloader.
@@ -78,9 +77,6 @@
 
   # Display & Desktop
   services = {
-    displayManager.cosmic-greeter.enable = true;
-    desktopManager.cosmic.enable = true;
-
     # Input
     xserver.xkb = {
       layout = "us";
@@ -89,9 +85,6 @@
 
     # Printing
     printing.enable = true;
-
-    #logitech mouse
-    solaar.enable = true;
 
     # Audio
     pulseaudio.enable = false;
@@ -103,8 +96,19 @@
       pulse.enable = true;
       # jack.enable = true;
     };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd}/bin/agreety --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
+        };
+      };
+    };
   };
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
 
   # User
   users.users.nlkoen = {
@@ -116,15 +120,15 @@
 
   # Programs
   programs = {
-    cwc.enable = true;
+    pinnacle = {
+      enable = true;
+      package = pinnacle.packages.${pkgs.system}.pinnacle;
+      xdg-portals.enable = true;
+    };
+    hyprland.enable = true;
     niri.enable = true;
     direnv.enable = true;
     zsh.enable = true;
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
 
     git = {
       enable = true;
@@ -137,31 +141,20 @@
 
   environment.systemPackages = with pkgs; [
     wget
-    godot
     scrcpy
     alejandra
     nixd
     nh
     fd
-    bibata-cursors
     pulseaudio
     playerctl
-    brightnessctl
-    flameshot
-    copyq
     xwayland-satellite
-    craftos-pc
-
     vesktop
     btop
     ripgrep
-    swww
-
     fastfetch
-
     zsh
     starship
-    waybar
   ];
 
   environment.sessionVariables = {
