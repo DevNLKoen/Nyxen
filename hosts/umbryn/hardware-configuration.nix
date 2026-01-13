@@ -85,4 +85,9 @@
     };
     cpu.amd.updateMicrocode = true;
   };
+  environment.sessionVariables = {
+    WLR_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1";
+    WLR_DRM_NO_DIRECT_SCANOUT = 1;
+    WLR_RENDERER = "vulkan";
+  };
 }
