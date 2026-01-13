@@ -209,11 +209,11 @@
     },
     "nix-flatpak": {
       "locked": {
-        "lastModified": 1739444422,
-        "narHash": "sha256-iAVVHi7X3kWORftY+LVbRiStRnQEob2TULWyjMS6dWg=",
+        "lastModified": 1767983141,
+        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
         "owner": "gmodena",
         "repo": "nix-flatpak",
-        "rev": "5e54c3ca05a7c7d968ae1ddeabe01d2a9bc1e177",
+        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
         "type": "github"
       },
       "original": {
@@ -272,11 +272,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1767640445,
-        "narHash": "sha256-UWYqmD7JFBEDBHWYcqE6s6c77pWdcU/i+bwD6XxMb8A=",
+        "lastModified": 1768127708,
+        "narHash": "sha256-1Sm77VfZh3mU0F5OqKABNLWxOuDeHIlcFjsXeeiPazs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9f0c42f8bc7151b8e7e5840fb3bd454ad850d8c5",
+        "rev": "ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38",
         "type": "github"
       },
       "original": {
@@ -344,11 +344,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1767701299,
-        "narHash": "sha256-DJyEb1HUXt0FSm4ADAxANc+J9PCihE93gXkbdi8YN6A=",
+        "lastModified": 1768135144,
+        "narHash": "sha256-c9q5pGqfVEcxqXLmjug0skKdE4IT4zFKbQdEzXGHTVY=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "c1713898c44cab30072b93635a6bf897b4002138",
+        "rev": "c7fe3c1818d01f71f2e1a0ec9b8e1c6a7e5c171b",
         "type": "github"
       },
       "original": {
@@ -364,11 +364,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1767219306,
-        "narHash": "sha256-YLxEz9lgJ90em1Ms9S0SO0ehtWJn0e33pu9UZPF4L6Q=",
+        "lastModified": 1768233322,
+        "narHash": "sha256-77nclIqqPcdVlsQ/FG5XRSY1IumKNg7hWyG8eEp4bNI=",
         "owner": "pinnacle-comp",
         "repo": "pinnacle",
-        "rev": "3cd0e470f61a7601885d662538616d37ae6c8097",
+        "rev": "0af40bb22a17a9a65d08cfbd4bba06473fc4dbb5",
         "type": "github"
       },
       "original": {
@@ -432,11 +432,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1767108589,
-        "narHash": "sha256-fVIBnIm3GtdcPxlUozIZ+hMGLDQnuxH5D4pHteFRGZY=",
+        "lastModified": 1767894877,
+        "narHash": "sha256-DB9vEEnEYilGUaHCljMRzT1embzD7uEjJugzRJgiLos=",
         "owner": "Svenum",
         "repo": "Solaar-Flake",
-        "rev": "9f38d91d82c40aadeef0a867edd0c9ac7f548f2f",
+        "rev": "f5cac914bdeeecac7fca07e99c8fee18336f5bd5",
         "type": "github"
       },
       "original": {
@@ -515,11 +515,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1767731266,
-        "narHash": "sha256-HfUTTp+7YJwLvMk3nXhPUwYyPJY4q+E45jPp0E18e5I=",
+        "lastModified": 1767819491,
+        "narHash": "sha256-Bz/+/Kl0iAqGJ9n6/J7m3fvoG704QHr0QxvCEKYBruQ=",
         "owner": "Lassulus",
         "repo": "wrappers",
-        "rev": "5e28f24475df9e4c4b0af30cb73ed87b29b33a78",
+        "rev": "73cdd598454136c1fb0510c3dd8bf30d9211942f",
         "type": "github"
       },
       "original": {
