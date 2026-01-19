@@ -95,7 +95,7 @@ in {
         enable = true;
         settings = {
           default_session = {
-            command = "${pkgs.greetd}/bin/agreety --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
+            command = "${pkgs.tuigreet}/bin/tuigreet -r --user-menu --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
           };
         };
       };
@@ -120,6 +120,7 @@ in {
 
     # Programs
     programs = {
+      hyprland.enable = true;
       pinnacle = {
         enable = true;
         package = pinnacle.packages.${pkgs.system}.pinnacle;
@@ -142,6 +143,7 @@ in {
       wget
       scrcpy
       alejandra
+      tuigreet
       nixd
       nh
       fd
