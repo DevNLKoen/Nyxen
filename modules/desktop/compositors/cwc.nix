@@ -2,6 +2,7 @@
   config,
   cwc,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -11,6 +12,9 @@
 
   config = lib.mkIf config.nyxen.desktop.compositors.cwc.enable {
     programs.cwc.enable = true;
+    environment.systemPackages = with pkgs; [
+      swaynotificationcenter
+    ];
     nyxen.desktop.enable = true;
   };
 }
