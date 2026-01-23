@@ -104,11 +104,6 @@ in {
       rtkit.enable = true;
       polkit.enable = true;
     };
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      wlr.enable = true;
-    };
 
     # User
     users.users.nlkoen = {
