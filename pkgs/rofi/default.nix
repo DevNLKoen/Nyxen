@@ -4,7 +4,7 @@
   ...
 }:
 (wrappers.wrapperModules.rofi.apply {
-  pkgs = pkgs;
+  inherit pkgs;
   plugins = [pkgs.rofi-games];
   settings = {
     modes = "window,drun,games";
@@ -13,5 +13,5 @@
     drun-display-format = "{name}";
     terminal = "kitty";
   };
-  theme = builtins.toString (./theme.rasi);
+  theme = "${./theme.rasi}";
 }).wrapper
