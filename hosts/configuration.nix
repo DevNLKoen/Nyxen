@@ -5,6 +5,7 @@
   cwc,
   lib,
   pinnacle,
+  packages,
   ...
 }: let
   systemName = config.nyxen.name;
@@ -132,11 +133,11 @@ in {
         };
       };
       firefox.enable = true;
+      gamescope.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
       wget
-      scrcpy
       alejandra
       tuigreet
       nixd
@@ -144,12 +145,12 @@ in {
       fd
       pulseaudio
       playerctl
-      vesktop
       btop
       ripgrep
-      fastfetch
       zsh
       starship
+      lazygit
+      packages.fastfetch
     ];
 
     environment.sessionVariables = {
