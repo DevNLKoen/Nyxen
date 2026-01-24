@@ -1,0 +1,78 @@
+{
+  "display": {
+    "bar": {
+      "char": {
+        "elapsed": "■",
+        "total": "-"
+      },
+      "width": 10
+    },
+    "color": {
+      "keys": "light_red",
+      "title": "red"
+    },
+    "key": {
+      "type": "both",
+      "width": 16
+    },
+    "percent": {
+      "color": {
+        "green": "green",
+        "red": "light_red",
+        "yellow": "light_yellow"
+      },
+      "type": 9
+    },
+    "separator": ": ",
+    "size": {
+      "binaryPrefix": "jedec"
+    }
+  },
+  "logo": {
+    "height": 17,
+    "padding": {
+      "left": 1,
+      "right": 1,
+      "top": 1
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "format": "{name} {version}",
+      "type": "os"
+    },
+    "host",
+    "kernel",
+    {
+      "combined": true,
+      "type": "packages"
+    },
+    "cpu",
+    "gpu",
+    "memory",
+    {
+      "key": "{name}",
+      "type": "disk"
+    },
+    {
+      "key": "Battery",
+      "type": "battery"
+    },
+    "shell",
+    "de",
+    {
+      "key": "OS Age",
+      "text": "birth_install=$(stat -c %W /)\ncurrent=$(date +%s)\ntime_progression=$((current - birth_install))\ndays_difference=$((time_progression / 86400))\necho $days_difference days\"\n",
+      "type": "command"
+    },
+    "uptime",
+    "datetime",
+    {
+      "key": "Player",
+      "type": "player"
+    },
+    "media"
+  ]
+}
