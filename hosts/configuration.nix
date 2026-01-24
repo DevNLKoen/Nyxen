@@ -73,6 +73,7 @@ in {
 
     # Display & Desktop
     services = {
+      earlyoom.enable = true;
       # Input
       xserver.xkb = {
         layout = "us";
@@ -133,7 +134,6 @@ in {
         };
       };
       firefox.enable = true;
-      gamescope.enable = true;
     };
 
     environment.systemPackages = with pkgs; [

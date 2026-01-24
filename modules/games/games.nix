@@ -20,7 +20,7 @@ in {
 
       programs = {
         steam.enable = lib.mkDefault true;
-        gamescope.enable = lib.mkOptionDefault true;
+        gamescope.enable = true;
         gamemode.enable = lib.mkDefault true;
         sleepy-launcher.enable = lib.mkDefault true;
         honkers-launcher.enable = lib.mkDefault true;
