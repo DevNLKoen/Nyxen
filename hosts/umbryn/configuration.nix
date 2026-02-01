@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  aagl,
+  cwc,
+  ...
+}: {
   imports = [
+    aagl.nixosModules.default
     ./hardware-configuration.nix
     ./../configuration.nix
   ];
@@ -12,20 +18,67 @@
     flatpak.enable = true;
   };
 
+  programs = {
+    hyprland.enable = true;
+    firefox.enable = true;
+  };
+    
   environment.systemPackages = with pkgs; [
     framework-tool
+      tuigreet
+      pulseaudio
+      playerctl
   ];
+
+  services = {
+    # Audio
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # jack.enable = true;
+    };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet -r --user-menu --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
+        };
+      };
+    };
+    minidlna = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        media_dir = [
+          "V,/home/nlkoen/Videos"
+          "/home/nlkoen/Videos/"
+        ];
+        friendly_name = "umbryn laptop";
+        inotify = "yes";
+      };
+    };
+  };
+    
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
 
   # Bootloader.
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
-        efiSupport = true;
-        device = "nodev";
-      };
+      systemd-boot.enable = true;
       timeout = 0;
     };
+    plymouth = {
+      enable = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   # System info

@@ -6,19 +6,13 @@
 
   # nyxen options from modules
   nyxen = {
-    desktop.enable = true;
-    flatpak.enable = true;
+    name = "vixus";
   };
 
   # Bootloader.
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        efiSupport = true;
-        device = "nodev";
-      };
-    };
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
   };
 
   # System info

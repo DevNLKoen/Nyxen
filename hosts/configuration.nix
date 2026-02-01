@@ -1,19 +1,12 @@
 {
   pkgs,
   config,
-  aagl,
-  cwc,
   lib,
-  pinnacle,
   packages,
   ...
 }: let
   systemName = config.nyxen.name;
 in {
-  imports = [
-    aagl.nixosModules.default
-    pinnacle.nixosModules.default
-  ];
   options.nyxen.name = lib.mkOption {
     type = lib.types.str;
     description = "base system name";
@@ -21,14 +14,6 @@ in {
 
   config = {
     nyxen.nvim.enable = true;
-
-    # Bootloader.
-    boot = {
-      plymouth = {
-        enable = true;
-      };
-      kernelPackages = pkgs.linuxPackages_latest;
-    };
 
     # Nix settings
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -83,28 +68,6 @@ in {
       # Printing
       printing.enable = true;
 
-      # Audio
-      pulseaudio.enable = false;
-
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        # jack.enable = true;
-      };
-      greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet -r --user-menu --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
-          };
-        };
-      };
-    };
-    security = {
-      rtkit.enable = true;
-      polkit.enable = true;
     };
 
     # User
@@ -117,12 +80,6 @@ in {
 
     # Programs
     programs = {
-      hyprland.enable = true;
-      pinnacle = {
-        enable = true;
-        package = pinnacle.packages.${pkgs.system}.pinnacle;
-        xdg-portals.enable = true;
-      };
       direnv.enable = true;
       dconf.enable = true;
       zsh.enable = true;
@@ -133,18 +90,14 @@ in {
           user.email = "94992822+DevNLKoen@users.noreply.github.com";
         };
       };
-      firefox.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
       wget
       alejandra
-      tuigreet
       nixd
       nh
       fd
-      pulseaudio
-      playerctl
       btop
       ripgrep
       zsh
