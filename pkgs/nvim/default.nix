@@ -24,9 +24,18 @@
     ## plugins
     statusline.lualine.enable = true;
     telescope.enable = true;
-    autocomplete.blink-cmp.enable = true;
+    autocomplete.nvim-cmp.enable = true;
+    snippets.luasnip.enable = true;
 
-    lsp.enable = true;
+    lsp = {
+      enable = true;
+      formatOnSave = true;
+      lspkind.enable = true;
+      inlayHints.enable = true;
+    };
+
+    diagnostics.enable = true;
+
     formatter.conform-nvim.enable = true;
 
     terminal.toggleterm.enable = true;
@@ -39,7 +48,13 @@
       enableTreesitter = true;
 
       java.enable = true;
-      lua.enable = true;
+      lua = {
+        enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+        format.enable = true;
+        extraDiagnostics.enable = true;
+      };
       nix.enable = true;
       python.enable = true;
       rust.enable = true;
