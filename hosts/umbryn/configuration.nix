@@ -22,12 +22,12 @@
     hyprland.enable = true;
     firefox.enable = true;
   };
-    
+
   environment.systemPackages = with pkgs; [
     framework-tool
-      tuigreet
-      pulseaudio
-      playerctl
+    tuigreet
+    pulseaudio
+    playerctl
   ];
 
   services = {
@@ -62,7 +62,7 @@
       };
     };
   };
-    
+
   security = {
     rtkit.enable = true;
     polkit.enable = true;
@@ -79,6 +79,9 @@
       enable = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
+  };
+  environment.sessionVariables = {
+    NH_FLAKE = "/home/nlkoen/nyxen";
   };
 
   # System info

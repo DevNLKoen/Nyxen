@@ -63,6 +63,16 @@
           nix-flatpak.nixosModules.nix-flatpak
         ];
       };
+      vixus = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit self aagl cwc packages;};
+        modules = [
+          ./hosts/vixus/configuration.nix
+          ./modules
+          solaar.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
+        ];
+      };
     };
 
     nvim =

@@ -9,6 +9,14 @@
     name = "vixus";
   };
 
+  services.openssh.enable = true;
+
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+  '';
+
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -16,5 +24,5 @@
   };
 
   # System info
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

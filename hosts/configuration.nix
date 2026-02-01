@@ -1,17 +1,20 @@
 {
   pkgs,
   config,
+  aagl,
   lib,
   packages,
   ...
 }: let
   systemName = config.nyxen.name;
 in {
+  imports = [
+    aagl.nixosModules.default
+  ];
   options.nyxen.name = lib.mkOption {
     type = lib.types.str;
     description = "base system name";
   };
-
   config = {
     nyxen.nvim.enable = true;
 
@@ -67,7 +70,6 @@ in {
 
       # Printing
       printing.enable = true;
-
     };
 
     # User
@@ -107,7 +109,7 @@ in {
     ];
 
     environment.sessionVariables = {
-      NH_FLAKE = "/home/nlkoen/nyxen";
+      NH_FLAKE = "github:DevNLKoen/Nyxen";
     };
   };
 }
