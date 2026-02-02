@@ -9,9 +9,11 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
-    initrd.kernelModules = [];
-    initrd.systemd.enable = true;
+    initrd = {
+      availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
+      kernelModules = [];
+      systemd.enable = true;
+    };
     kernelModules = ["cros_ec" "cros_ec_lpcs"];
     kernelParams = [
       "amdgpu.dcdebugmask=0x10"

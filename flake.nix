@@ -41,14 +41,14 @@
       builtins.listToAttrs
       (
         map (name: {
-          name = name;
+          inherit name;
           value = wrap name;
         })
         (builtins.attrNames (builtins.readDir ./pkgs))
       );
     packages = wrapAll // {};
   in {
-    packages = packages;
+    inherit packages;
     nixosConfigurations = {
       umbryn = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -75,7 +75,7 @@
 
     nvim =
       (nvf.lib.neovimConfiguration {
-        pkgs = pkgs;
+        inherit pkgs;
         modules = [./pkgs/nvim];
       }).neovim;
   };
