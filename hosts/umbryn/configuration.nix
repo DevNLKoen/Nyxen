@@ -2,6 +2,7 @@
   pkgs,
   aagl,
   cwc,
+  lib,
   ...
 }: {
   imports = [
@@ -81,7 +82,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
   environment.sessionVariables = {
-    NH_FLAKE = "/home/nlkoen/nyxen";
+    NH_FLAKE = lib.mkForce "/home/nlkoen/nyxen";
   };
 
   # System info
