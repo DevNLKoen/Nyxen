@@ -55,8 +55,7 @@
       openFirewall = true;
       settings = {
         media_dir = [
-          "V,/home/nlkoen/Videos"
-          "/home/nlkoen/Videos/"
+          "/home/nlkoen/Videos"
         ];
         friendly_name = "umbryn laptop";
         inotify = "yes";
