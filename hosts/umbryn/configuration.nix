@@ -15,12 +15,12 @@
   nyxen = {
     name = "umbryn";
     desktop.compositors.cwc.enable = true;
+    desktop.compositors.niri.enable = true;
     games.enable = true;
     flatpak.enable = true;
   };
 
   programs = {
-    hyprland.enable = true;
     firefox.enable = true;
   };
 
@@ -29,6 +29,7 @@
     tuigreet
     pulseaudio
     playerctl
+    wlr-which-key
   ];
 
   services = {
