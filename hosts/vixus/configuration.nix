@@ -9,7 +9,21 @@
     name = "vixus";
   };
 
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    suwayomi-server = {
+      enable = true;
+      openFirewall = true;
+      settings.server = {
+        basicAuthEnabled = true;
+        extensionRepos = ["https://raw.githubusercontent.com/yuzono/manga-repo/repo/index.min.json"];
+        basicAuthUsername = "NLKoen";
+        basicAuthPasswordFile = "/var/secrets/suwayomi-server-password";
+      };
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [25565];
 
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
