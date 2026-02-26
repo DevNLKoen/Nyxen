@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -9,6 +10,7 @@
   ];
 
   boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
     initrd = {
       availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
       kernelModules = [];
@@ -80,7 +82,8 @@
       modesetting.enable = true;
       open = true;
       prime = {
-        sync.enable = true;
+        # sync.enable = true;
+        offload.enable = true;
         amdgpuBusId = lib.mkDefault "PCI:194:0:0";
         nvidiaBusId = lib.mkDefault "PCI:193:0:0";
       };

@@ -22,6 +22,7 @@
 
   programs = {
     firefox.enable = true;
+    kdeconnect.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -33,6 +34,7 @@
   ];
 
   services = {
+    desktopManager.plasma6.enable = true;
     # Audio
     pulseaudio.enable = false;
 
@@ -79,7 +81,7 @@
     plymouth = {
       enable = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
   };
   environment.sessionVariables = {
     NH_FLAKE = lib.mkForce "/home/nlkoen/nyxen";
