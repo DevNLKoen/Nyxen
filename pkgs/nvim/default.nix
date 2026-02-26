@@ -46,7 +46,14 @@
       enableExtraDiagnostics = true;
       enableFormat = true;
       enableTreesitter = true;
-
+      dart = {
+        enable = true;
+        flutter-tools.enable = true;
+        lsp.enable = true;
+        flutter-tools.color.enable = true;
+        dap.enable = true;
+        treesitter.enable = true;
+      };
       java.enable = true;
       lua = {
         enable = true;
@@ -55,6 +62,7 @@
         format.enable = true;
         extraDiagnostics.enable = true;
       };
+
       nix.enable = true;
       python.enable = true;
       rust.enable = true;
