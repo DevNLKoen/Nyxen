@@ -17,6 +17,7 @@
     };
 
     cwc.url = "github:Cudiph/cwcwm/v0.3.0"; # the cwcwm window manager
+    pinnacle.url = "github:pinnacle-comp/pinnacle/v0.2.2";
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
     nvf.url = "github:notashelf/nvf";
   };
@@ -28,6 +29,7 @@
     aagl,
     solaar,
     cwc,
+    pinnacle,
     nix-flatpak,
     nvf,
     ...
@@ -36,7 +38,7 @@
     pkgs = import nixpkgs {inherit system;};
 
     #wraps pkgs from ./pkgs
-    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers;};
+    wrap = name: import ./pkgs/${name} {inherit pkgs wrappers pinnacle;};
     wrapAll =
       builtins.listToAttrs
       (
