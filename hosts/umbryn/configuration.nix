@@ -1,12 +1,15 @@
 {
   pkgs,
+  self,
   aagl,
+  pinnacle,
   cwc,
   lib,
   ...
 }: {
   imports = [
     aagl.nixosModules.default
+    pinnacle.nixosModules.default
     ./hardware-configuration.nix
     ./../configuration.nix
   ];
@@ -23,6 +26,29 @@
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
+    pinnacle = {
+      enable = true;
+      package = self.packages.pinnacle;
+
+      xdg-portals.enable = true;
+      withUWSM = true;
+    };
+  };
+
+  xdg.portal = {
+    config = {
+      pinnacle = {
+        default = ["wlr" "gtk"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+      };
+
+      common.default = ["gtk"];
+      common = {
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [

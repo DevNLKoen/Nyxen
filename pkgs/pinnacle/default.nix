@@ -25,6 +25,8 @@
     name = "pinnacle-0.2.2";
     paths = [pinnacle.packages.${system}.pinnacle];
     pname = "pinnacle";
+
+    passthru.providedSessions = ["pinnacle"];
     meta.mainProgram = "pinnacle"; # Adjust this to "pinnacle-server" if that's the binary name
   };
 in
