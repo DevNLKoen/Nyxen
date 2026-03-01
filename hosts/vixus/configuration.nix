@@ -21,6 +21,10 @@
         basicAuthPasswordFile = "/var/secrets/suwayomi-server-password";
       };
     };
+    flaresolverr = {
+      openFirewall = true;
+      enable = true;
+    };
   };
 
   networking.firewall.allowedTCPPorts = [25565];
