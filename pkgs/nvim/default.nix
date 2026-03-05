@@ -65,7 +65,12 @@
 
       nix.enable = true;
       python.enable = true;
-      rust.enable = true;
+      rust = {
+        enable = true;
+        lsp.enable = true;
+        treesitter.enable = true;
+        format.enable = true;
+      };
     };
 
     filetree.neo-tree.enable = true;
