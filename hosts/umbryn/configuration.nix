@@ -35,22 +35,6 @@
     };
   };
 
-  xdg.portal = {
-    config = {
-      pinnacle = {
-        default = ["wlr" "gtk"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-      };
-
-      common.default = ["gtk"];
-      common = {
-        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
-        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
-      };
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     framework-tool
     tuigreet
