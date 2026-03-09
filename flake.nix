@@ -54,7 +54,7 @@
     nixosConfigurations = {
       umbryn = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit self aagl cwc packages;};
+        specialArgs = {inherit self aagl pinnacle cwc packages;};
 
         modules = [
           ./hosts/umbryn/configuration.nix
