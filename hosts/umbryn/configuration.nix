@@ -3,7 +3,6 @@
   self,
   aagl,
   pinnacle,
-  cwc,
   lib,
   ...
 }: {
@@ -23,6 +22,17 @@
     flatpak.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr = {
+      enable = true;
+      settings.screencast = {
+        chooser_cmd = "/run/current-system/sw/bin/rofi -dmenu -i -p 'eg'";
+        chooser_type = "dmenu";
+      };
+    };
+  };
+
   programs = {
     firefox.enable = true;
     kdeconnect.enable = true;
@@ -40,7 +50,6 @@
     tuigreet
     pulseaudio
     playerctl
-    wlr-which-key
   ];
 
   services = {
@@ -59,8 +68,10 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet -r --user-menu --cmd ${cwc.packages.${pkgs.system}.default}/bin/cwc";
+          command = ''            ${pkgs.tuigreet}/bin/tuigreet --time \
+                      --cmd -- "uwsm start default"'';
         };
+        user = "greeter";
       };
     };
     minidlna = {
