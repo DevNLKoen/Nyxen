@@ -13,11 +13,6 @@
     ./../configuration.nix
   ];
 
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
   # nyxen options from modules
   nyxen = {
     name = "umbryn";
@@ -40,9 +35,6 @@
 
   programs = {
     firefox.enable = true;
-    sway.enable = true;
-    hyprland.enable = true;
-    wayfire.enable = true;
     kdeconnect.enable = true;
     pinnacle = {
       enable = true;
@@ -58,8 +50,6 @@
     tuigreet
     pulseaudio
     playerctl
-
-    distrobox
   ];
 
   services = {
