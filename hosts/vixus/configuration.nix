@@ -33,11 +33,11 @@
 
   networking.firewall.allowedTCPPorts = [25565];
 
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-  '';
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "no";
+    AllowHibernation = "no";
+    AllowHybridSleep = "no";
+  };
 
   # Bootloader.
   boot.loader = {
