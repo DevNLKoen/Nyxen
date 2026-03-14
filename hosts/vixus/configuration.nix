@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./../configuration.nix
@@ -26,6 +26,10 @@
       enable = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    syncyomi
+  ];
 
   networking.firewall.allowedTCPPorts = [25565];
 
