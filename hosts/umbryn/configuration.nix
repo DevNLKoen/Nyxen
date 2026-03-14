@@ -17,7 +17,6 @@
   nyxen = {
     name = "umbryn";
     desktop.compositors.cwc.enable = true;
-    desktop.compositors.niri.enable = true;
     games.enable = true;
     flatpak.enable = true;
   };
