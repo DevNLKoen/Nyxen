@@ -16,7 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    cwc.url = "github:Cudiph/cwcwm/v0.3.0"; # the cwcwm window manager
+    cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
+    awww.url = "git+https://codeberg.org/LGFae/awww"; # wayland background
     pinnacle.url = "github:pinnacle-comp/pinnacle/v0.2.2";
     nix-flatpak.url = "github:/gmodena/nix-flatpak/?ref=latest";
     nvf.url = "github:notashelf/nvf";
@@ -29,6 +30,7 @@
     aagl,
     solaar,
     cwc,
+    awww,
     pinnacle,
     nix-flatpak,
     nvf,
@@ -54,7 +56,7 @@
     nixosConfigurations = {
       umbryn = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit self aagl pinnacle cwc packages;};
+        specialArgs = {inherit self aagl pinnacle cwc packages awww;};
 
         modules = [
           ./hosts/umbryn/configuration.nix

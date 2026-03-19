@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  awww,
   packages,
   ...
 }: {
@@ -20,7 +21,7 @@
       brightnessctl
       copyq
       flameshot
-      swww
+      awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       waybar
       vesktop
       swaynotificationcenter
