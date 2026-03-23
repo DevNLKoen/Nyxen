@@ -75,7 +75,10 @@
   };
 
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
     sensor.iio.enable = true;
     keyboard.qmk.enable = true;
     nvidia = {
