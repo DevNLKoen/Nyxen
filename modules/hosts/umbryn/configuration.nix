@@ -27,7 +27,7 @@
       wlr = {
         enable = true;
         settings.screencast = {
-          chooser_cmd = "/run/current-system/sw/bin/rofi -dmenu -i -p 'eg'";
+          chooser_cmd = "${self.packages.${pkgs.stdenv.hostPlatform.system}.rofi}/bin/rofi -dmenu -i -p 'eg'";
           chooser_type = "dmenu";
         };
       };

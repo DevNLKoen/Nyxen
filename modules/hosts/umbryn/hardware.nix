@@ -88,20 +88,20 @@
       keyboard.qmk.enable = true;
       nvidia = {
         modesetting.enable = true;
-        open = true;
-        prime = {
-          # sync.enable = true;
-          offload.enable = true;
-          amdgpuBusId = lib.mkDefault "PCI:194:0:0";
-          nvidiaBusId = lib.mkDefault "PCI:193:0:0";
+        powerManagement = {
+          enable = true;
         };
+        open = true;
+        # prime = {
+        #   # sync.enable = true;
+        #   offload.enable = true;
+        #   amdgpuBusId = lib.mkDefault "PCI:194:0:0";
+        #   nvidiaBusId = lib.mkDefault "PCI:193:0:0";
+        # };
       };
       cpu.amd.updateMicrocode = true;
     };
     environment.sessionVariables = {
-      WLR_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1";
-      WLR_DRM_NO_DIRECT_SCANOUT = 1;
-      WLR_RENDERER = "vulkan";
     };
   };
 }
