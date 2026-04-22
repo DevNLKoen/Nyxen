@@ -15,7 +15,7 @@
           package = pkgs.mkMinecraftServer {
             name = "pulse";
             src = ./pulse;
-            hash = "sha256-eva8kFhA/29Zd1XfkAZrT1KsJvw3LShbO5lYnnKGEH4=";
+            hash = "sha256-ugAovCO3T8YKPAdxVHr06GL0MFLZdJEeq/5vo9fBpgM=";
           };
         };
       };
