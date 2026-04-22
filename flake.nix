@@ -19,6 +19,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww"; # wayland background
     nvf.url = "github:notashelf/nvf";
     playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
+    flux.url = "github:IogaMaster/flux";
   };
 
   outputs = inputs:

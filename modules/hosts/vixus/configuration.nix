@@ -8,6 +8,7 @@
     imports = [
       self.nixosModules.vixusHardware
       self.nixosModules.commonConfiguration
+      self.nixosModules.pulse
       inputs.playit-nixos-module.nixosModules.default
     ];
 
@@ -20,7 +21,7 @@
       openssh.enable = true;
       playit = {
         enable = true;
-        secretPath = config.age.secrets.playit-secret.path;
+        secretPath = "/var/secrets/playit.toml";
       };
       suwayomi-server = {
         enable = true;

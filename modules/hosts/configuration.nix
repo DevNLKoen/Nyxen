@@ -20,7 +20,10 @@
     };
     config = {
       # Nix settings
-      nix.settings.experimental-features = ["nix-command" "flakes"];
+      nix.settings = {
+        experimental-features = ["nix-command" "flakes"];
+        trusted-users = ["root" "nlkoen"];
+      };
       nixpkgs.config.allowUnfree = true;
 
       # System info
