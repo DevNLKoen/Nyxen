@@ -31,6 +31,22 @@
           chooser_type = "dmenu";
         };
       };
+      extraPortals = with pkgs; [
+        kdePackages.xdg-desktop-portal-kde
+      ];
+      config = {
+        common = {
+          default = ["wlr"];
+        };
+
+        cwc = {
+          default = ["wlr"];
+        };
+
+        KDE = {
+          default = ["kde"];
+        };
+      };
     };
 
     programs = {
@@ -47,6 +63,7 @@
     ];
 
     services = {
+      flatpak.enable = true;
       desktopManager.plasma6.enable = true;
       # Audio
       pulseaudio.enable = false;

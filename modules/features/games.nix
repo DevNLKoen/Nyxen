@@ -15,7 +15,6 @@
     programs = {
       steam.enable = true;
       gamescope.enable = true;
-      gamescope.capSysNice = true;
       gamemode.enable = true;
       anime-games-launcher.enable = true;
       sleepy-launcher.enable = true;

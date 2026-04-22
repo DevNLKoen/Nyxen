@@ -21,7 +21,7 @@
       swaynotificationcenter
       lxqt.pavucontrol-qt
       godot
-      protonvpn-gui
+      proton-vpn
       self.packages.${pkgs.stdenv.hostPlatform.system}.kitty
       self.packages.${pkgs.stdenv.hostPlatform.system}.rofi
     ];

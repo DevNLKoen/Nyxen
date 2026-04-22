@@ -15,7 +15,7 @@
     ];
 
     boot = {
-      kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+      kernelPackages = pkgs.linuxPackages_latest;
       initrd = {
         availableKernelModules = ["xhci_pci" "vmd" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
         kernelModules = [];
@@ -93,8 +93,9 @@
         };
         open = true;
         # prime = {
-        #   # sync.enable = true;
+        #   #   # sync.enable = true;
         #   offload.enable = true;
+        #   offload.enableOffloadCmd = true;
         #   amdgpuBusId = lib.mkDefault "PCI:194:0:0";
         #   nvidiaBusId = lib.mkDefault "PCI:193:0:0";
         # };
