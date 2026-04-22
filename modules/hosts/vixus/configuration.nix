@@ -1,12 +1,14 @@
 {
   self,
   inputs,
+  config,
   ...
 }: {
   flake.nixosModules.vixusConfiguration = {pkgs, ...}: {
     imports = [
       self.nixosModules.vixusHardware
       self.nixosModules.commonConfiguration
+      inputs.playit-nixos-module.nixosModules.default
     ];
 
     # nyxen options from modules
@@ -16,6 +18,10 @@
 
     services = {
       openssh.enable = true;
+      playit = {
+        enable = true;
+        secretPath = config.age.secrets.playit-secret.path;
+      };
       suwayomi-server = {
         enable = true;
         openFirewall = true;

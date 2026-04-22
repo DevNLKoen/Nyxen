@@ -18,6 +18,7 @@
     cwc.url = "github:Cudiph/cwcwm"; # the cwcwm window manager
     awww.url = "git+https://codeberg.org/LGFae/awww"; # wayland background
     nvf.url = "github:notashelf/nvf";
+    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
   };
 
   outputs = inputs:
